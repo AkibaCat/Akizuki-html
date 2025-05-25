@@ -21,6 +21,23 @@ function getBrowserLanguage() {
     return 'zh-CN';
 }
 
+// 菜单按钮点击事件
+document.addEventListener('DOMContentLoaded', function() {
+    const menuBtn = document.querySelector('.menu');
+    const navList = document.querySelector('header nav ul');
+
+    menuBtn.addEventListener('click', function() {
+        navList.classList.toggle('show');
+    });
+
+    // 添加点击页面其他区域关闭侧边栏的逻辑
+    document.addEventListener('click', function(event) {
+        if (navList.classList.contains('show') && !navList.contains(event.target) && event.target !== menuBtn) {
+            navList.classList.remove('show');
+        }
+    });
+});
+
 async function loadTranslations(lang) {
     try {
         const response = await fetch(`./lang/${lang}.json`);
