@@ -24,9 +24,24 @@ a:hover {
     text-decoration: underline;
 }
 
+.menu {
+    display: none;
+    background: none;
+    border: none;
+    padding: 0;
+    margin: 0;
+    font: inherit;
+    color: inherit;
+    flex-direction: column;
+    position: absolute;
+    line-height: 2.4rem;
+    left: 12px;
+    top: 0;
+}
+
 /* 头部样式 */
 header {
-    height: 3rem;
+    height: 2.4rem;
     width: 100%;
     background-color: #1f6fc6;
     padding: 0.8rem;
@@ -40,14 +55,14 @@ header h1 {
     left: 30px;
     top: 0;
     font-size: 1.6rem;
-    line-height: 3rem;
+    line-height: 2.4rem;
 }
 
 header nav ul {
     position: absolute;
     right: 10px;
     top: 0;
-    line-height: 3rem;
+    line-height: 2.4rem;
 }
 
 header nav li {
@@ -202,6 +217,28 @@ footer {
 }
 
 @media screen and (max-width: 768px) {
+    .menu {
+        display: block; 
+    }
+    header h1 {
+        left: 50%;
+        transform: translateX(-50%);
+        text-align: center;
+    }
+    header nav ul {
+        background-color: #00000066;
+        top: 2.4rem;
+        left: -45%;
+        height: 100vh;
+        width: 45%;
+        padding: 2rem;
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+    }
+    #head div {
+        margin-left: 0;
+    }
     #head {
         align-items: center;
         text-align: center;
