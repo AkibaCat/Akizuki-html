@@ -1,0 +1,212 @@
+/* 基础样式 */
+* {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #3a3a3a;
+    color: #efefef;
+    line-height: 1.6;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+a {
+    color: #efefef;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* 头部样式 */
+header {
+    height: 3rem;
+    width: 100%;
+    background-color: #1f6fc6;
+    padding: 0.8rem;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    z-index: 1000;
+}
+
+header h1 {
+    position: absolute;
+    left: 30px;
+    top: 0;
+    font-size: 1.6rem;
+    line-height: 3rem;
+}
+
+header nav ul {
+    position: absolute;
+    right: 10px;
+    top: 0;
+    line-height: 3rem;
+}
+
+header nav li {
+    display: inline;
+    margin: 0 0.6rem;
+}
+
+#language-selector {
+    background-color: #1f6fc6;
+    color: #efefef;
+    border: 1px solid #efefef;
+    border-radius: 4px;
+    padding: 0.2rem 0.4rem;
+    cursor: pointer;
+}
+
+#language-selector:focus {
+    outline: none;
+}
+
+/* 头部内容样式 */
+#head {
+    background-color: #95a9ce;
+    height: 100vh;
+    background-image: url('image/backg-image-2.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    text-shadow: #1f6fc6 0 0 10px;
+}
+
+#head div {
+    padding: 1rem;
+    margin-left: 6vw;
+}
+
+#head h1 {
+    margin-top: 5vh;
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+}
+
+#head h3 {
+    font-size: 1.2rem;
+    margin-bottom: 1.5rem;
+}
+
+/* 动画样式 */
+@keyframes lineFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.animated-text {
+    opacity: 0;
+}
+
+#head h1.animated-text {
+    animation: lineFadeIn 1s ease-out 0.2s forwards;
+}
+
+#head h3.animated-text {
+    animation: lineFadeIn 1s ease-out 0.4s forwards;
+}
+
+#head p .animated-text {
+    animation: lineFadeIn 1s ease-out 0.6s forwards;
+}
+
+/* 服务部分样式 */
+#services {
+    background-color: #95a9ce;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    text-shadow: #1f6fc6 0 0 10px;
+    padding: 1rem;
+}
+
+.services-container {
+    display: flex;
+    flex-direction: row;
+}
+
+.service {
+    background-color: #95a9ce;
+    border: #efefef 1px solid;
+    box-shadow: #efefef 0 0 5px;
+    border-radius: 15px;
+    padding: 1rem;
+    margin: 1rem;
+}
+
+/* 按钮样式 */
+.btn {
+    display: inline-block;
+    background-color: #1f6fc655;
+    border: #efefef 1px solid;
+    padding: 0.6rem 1.2rem;
+    border-radius: 8px;
+    transition: background-color 0.3s;
+    font-size: 0.9rem;
+}
+
+.btn:hover {
+    background-color: #ffffff44;
+    text-decoration: none;
+}
+
+/* 页脚样式 */
+footer {
+    color: #afafaf;
+    text-align: center;
+    padding: 1.2rem;
+    background-color: #1f6fc6;
+    font-size: 0.9rem;
+}
+
+/* 媒体查询 */
+/* 针对小屏幕设备（手机）调整样式 */
+@media (max-width: 550px) {
+    header h1 {
+        font-size: 1.4rem;
+        left: 20px;
+    }
+    #head h1 {
+        font-size: 2rem;
+        margin-bottom: 0.5rem;
+    }
+    #head h3 {
+        font-size: 1rem;
+        margin-bottom: 1rem;
+    }
+    .btn {
+        padding: 0.5rem 1rem;
+    }
+    footer {
+        padding: 1rem;
+        font-size: 0.8rem;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    #head {
+        align-items: center;
+        text-align: center;
+    }
+    .services-container {
+        flex-direction: column;
+    }
+}

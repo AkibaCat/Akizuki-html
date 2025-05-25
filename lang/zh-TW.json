@@ -1,0 +1,15 @@
+{
+    "nav1": "首頁",
+    "nav2": "聯繫我們",
+    "studio-name": "Akizuki Studio (秋月工作室)",
+    "studio-intro": "Akizuki Studio 由 AkibaCat 於2022年獨立創立<br>專注於 界面設計(UI/UX)、響應式Web開發、小型程式開發",
+    "learn-more": "了解更多",
+    "copyright": "Copyright &copy; 2022-2025 Akizuki Studio. 保留所有權利",
+    "services": "主要服務",
+    "service1": "界面設計",
+    "service1-desc": "提供專業的界面設計服務，<br>幫助您創建精美的用戶界面",
+    "service2": "響應式Web開發",
+    "service2-desc": "提供響應式Web開發服務，<br>確保您的網站在各種設備上都能正常顯示",
+    "service3": "小型程式開發",
+    "service3-desc": "提供小型程式開發服務，<br>幫助您創建簡單易用的應用程式"
+}

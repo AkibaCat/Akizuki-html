@@ -1,0 +1,15 @@
+{
+    "nav1": "Home",
+    "nav2": "Contact Us",
+    "studio-name": "Akizuki Studio",
+    "studio-intro": "Akizuki Studio was independently founded by AkibaCat in 2022.<br>Specializing in UI/UX design, responsive web development, and small program development.",
+    "learn-more": "Learn More",
+    "copyright": "Copyright &copy; 2022-2025 Akizuki Studio. All rights reserved.",
+    "services": "Main Services",
+    "service1": "UI Design",
+    "service1-desc": "Provide professional UI design services,<br>helping you create beautiful user interfaces.",
+    "service2": "Responsive Web Development",
+    "service2-desc": "Provide responsive web development services,<br>ensuring your website displays correctly on all devices.",
+    "service3": "Small Program Development",
+    "service3-desc": "Provide small program development services,<br>helping you create easy-to-use applications."
+}
