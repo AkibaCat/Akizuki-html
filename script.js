@@ -1,4 +1,7 @@
 let translations = {};
+let currentNewsIndex = 0;
+let newsItems = [];
+let autoSwitchTimer;
 
 // 获取浏览器首选语言并匹配可用语言
 function getBrowserLanguage() {
@@ -36,7 +39,129 @@ document.addEventListener('DOMContentLoaded', function() {
             navList.classList.remove('show');
         }
     });
+
+    // 读取新闻数据并渲染
+    fetch('news.json')
+        .then(response => response.json())
+        .then(data => {
+            const newsContainer = document.getElementById('news-container');
+            const dotsContainer = document.getElementById('news-dots');
+            // 限制新闻数量最多为 6 个
+            const limitedNewsData = data.slice(0, 6); 
+            newsItems = limitedNewsData.map(news => {
+                const newsItem = document.createElement('div');
+                newsItem.className = 'news-item';
+                newsItem.style.backgroundImage = `url('${news.image}')`;
+                newsItem.innerHTML = `
+                    <h3>${news.title}</h3>
+                    <p>${news.content}</p>
+                `;
+                newsItem.addEventListener('click', () => {
+                    window.open(news.link, '_blank');
+                });
+                newsItem.style.cursor = 'pointer';
+                newsContainer.appendChild(newsItem);
+                return newsItem;
+            });
+
+            // 创建原点指示器
+            dots = limitedNewsData.map((_, index) => {
+                const dot = document.createElement('div');
+                dot.className = 'news-dot';
+                if (index === currentNewsIndex) {
+                    dot.classList.add('active');
+                }
+                dot.addEventListener('click', () => {
+                    currentNewsIndex = index;
+                    resetAutoSwitch();
+                    showNews(currentNewsIndex);
+                });
+                dotsContainer.appendChild(dot);
+                return dot;
+            });
+
+            showNews(currentNewsIndex);
+            startAutoSwitch();
+
+            // 添加滚轮事件监听，阻止默认滚动行为
+            newsContainer.addEventListener('wheel', (event) => {
+                event.preventDefault();
+                handleWheel(event);
+            }, { passive: false });
+
+            // 添加移动端触摸事件监听
+            newsContainer.addEventListener('touchstart', (e) => {
+                touchStartX = e.changedTouches[0].screenX;
+            }, { passive: true });
+
+            newsContainer.addEventListener('touchend', (e) => {
+                touchEndX = e.changedTouches[0].screenX;
+                handleSwipe();
+            }, { passive: true });
+        })
+        .catch(error => console.error('获取新闻数据失败:', error));
 });
+
+function showNews(index) {
+    newsItems.forEach((item, i) => {
+        if (i === index) {
+            item.classList.add('active');
+            item.classList.remove('prev', 'next');
+        } else if (i < index) {
+            item.classList.add('prev');
+            item.classList.remove('active', 'next');
+        } else {
+            item.classList.add('next');
+            item.classList.remove('active', 'prev');
+        }
+    });
+
+    // 更新原点指示器状态
+    dots.forEach((dot, i) => {
+        if (i === index) {
+            dot.classList.add('active');
+        } else {
+            dot.classList.remove('active');
+        }
+    });
+}
+
+function handleSwipe() {
+    const threshold = 50; // 滑动阈值，可根据需求调整
+    if (touchEndX < touchStartX - threshold) {
+        // 向左滑动，显示下一条新闻
+        currentNewsIndex = (currentNewsIndex + 1) % newsItems.length;
+    } else if (touchEndX > touchStartX + threshold) {
+        // 向右滑动，显示上一条新闻
+        currentNewsIndex = (currentNewsIndex - 1 + newsItems.length) % newsItems.length;
+    }
+    resetAutoSwitch();
+    showNews(currentNewsIndex);
+}
+
+function handleWheel(event) {
+    resetAutoSwitch();
+    if (event.deltaY > 0) {
+        // 向下滚动，显示下一条新闻
+        currentNewsIndex = (currentNewsIndex + 1) % newsItems.length;
+    } else {
+        // 向上滚动，显示上一条新闻
+        currentNewsIndex = (currentNewsIndex - 1 + newsItems.length) % newsItems.length;
+    }
+    showNews(currentNewsIndex);
+}
+
+function startAutoSwitch() {
+    autoSwitchTimer = setInterval(() => {
+        currentNewsIndex = (currentNewsIndex + 1) % newsItems.length;
+        showNews(currentNewsIndex);
+    }, 5000);
+}
+
+function resetAutoSwitch() {
+    clearInterval(autoSwitchTimer);
+    startAutoSwitch();
+}
 
 async function loadTranslations(lang) {
     try {
@@ -73,3 +198,38 @@ document.getElementById('language-selector').addEventListener('change', (event) 
 const browserLang = getBrowserLanguage();
 document.getElementById('language-selector').value = browserLang;
 loadTranslations(browserLang);
+
+
+// 定义渲染所有新闻的函数
+function renderAllNews() {
+    const allNewsContainer = document.getElementById('all-news-container');
+    if (!allNewsContainer) return;
+
+    fetch('news.json')
+      .then(response => response.json())
+      .then(data => {
+            allNewsContainer.innerHTML = '';
+            data.forEach(news => {
+                const newsItem = document.createElement('div');
+                newsItem.className = 'news-item';
+                newsItem.style.backgroundImage = `url('${news.image}')`;
+                newsItem.innerHTML = `
+                    <h3>${news.title}</h3>
+                    <p>${news.content}</p>
+                `;
+                newsItem.addEventListener('click', () => {
+                    window.open(news.link, '_blank');
+                });
+                newsItem.style.cursor = 'pointer';
+                allNewsContainer.appendChild(newsItem);
+            });
+        })
+      .catch(error => console.error('获取新闻数据失败:', error));
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+    // 若在新闻页面，渲染所有新闻
+    if (document.getElementById('all-news-container')) {
+        renderAllNews();
+    }
+});

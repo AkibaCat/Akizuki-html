@@ -14,7 +14,8 @@
         <button class="menu"><i class="fa fa-bars"></i></button>
         <nav>
             <ul>
-                <li class="none"><a href="./" data-lang-key="nav1">首页</a></li>
+                <li class="none"><a href="./index.html" data-lang-key="home">首页</a></li>
+                <li class="none"><a href="./news.html" data-lang-key="news">新闻资讯</a></li>
                 <li class="none"><a href="#" data-lang-key="nav2">联系我们</a></li>
                 <li>
                     <select id="language-selector">
@@ -28,16 +29,25 @@
         </nav>
     </header>
     <main>
+        <!-- 头部 -->
         <section id="head" class="play-animation">
             <div>
                 <h1 class="animated-text" data-lang-key="studio-name">Akizuki Studio (秋月工作室)</h1>
                 <h3 class="animated-text" data-lang-key="studio-intro">Akizuki Studio 由 AkibaCat 于2022年独立创立
                     <br>专注于 界面设计(UI/UX)、响应式Web开发、小型程序开发</h3>
-                <p><a href="#about" class="btn animated-text" data-lang-key="learn-more">了解更多</a></p>
+                <p><a href="#news" class="btn animated-text" data-lang-key="learn-more">了解更多</a></p>
             </div>
         </section>
+        <!-- 新闻资讯 -->
+        <section id="news">
+            <h2><a href="./news.html" data-lang-key="news">新闻资讯</a></h2>
+            <div id="news-container" class="news-slider"></div>
+            <div id="news-dots"></div>
+        </section>
+        <!-- 关于我们 -->
         <section id="about">
         </section>
+        <!-- 主要服务 -->
         <section id="services">
             <h2 data-lang-key="services">主要服务</h2>
             <div class="services-container">
@@ -62,7 +72,7 @@
             </div>
         </section>
     </main>
-    <footer data-lang-key="copyright">Copyright &copy; 2022-2025 Akizuki Studio. 保留所有权利</footer>
+    <footer data-lang-key="copyright">Copyright &copy; 2022-2025 Akizuki Studio. 保留所有权利<br>mail: a7autumn@outlook.com</footer>
     <script src="script.js"></script>
 </body>
 </html>

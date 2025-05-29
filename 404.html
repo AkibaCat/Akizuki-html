@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 - 页面未找到</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+    <header>
+        <h1>Akizuki</h1>
+        <button class="menu"><i class="fa fa-bars"></i></button>
+        <nav>
+            <ul>
+                <li class="none"><a href="./" data-lang-key="home">首页</a></li>
+                <li class="none"><a href="./news.html" data-lang-key="news">新闻资讯</a></li>
+                <li class="none"><a href="#" data-lang-key="nav2">联系我们</a></li>
+                <li>
+                    <select id="language-selector">
+                        <option value="zh-CN">简体中文</option>
+                        <option value="zh-TW">繁體中文</option>
+                        <option value="en">English</option>
+                        <option value="ja">日本語</option>
+                    </select>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section style="text-align: center; padding: 4rem;">
+            <h1 data-lang-key="404-title">404 - 页面未找到</h1>
+            <p data-lang-key="404-desc">您访问的页面不存在，请检查网址或返回首页。</p>
+            <a href="./" class="btn" data-lang-key="back-home">返回首页</a>
+        </section>
+    </main>
+    <footer data-lang-key="copyright">Copyright &copy; 2022-2025 Akizuki Studio. 保留所有权利<br>mail: a7autumn@outlook.com</footer>
+    <script src="script.js"></script>
+</body>
+</html>

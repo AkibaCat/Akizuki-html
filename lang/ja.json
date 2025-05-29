@@ -1,15 +1,19 @@
 {
-    "nav1": "ホーム",
+    "home": "ホーム",
     "nav2": "お問い合わせ",
     "studio-name": "Akizuki Studio (秋月スタジオ)",
     "studio-intro": "Akizuki Studioは2022年にAkibaCatによって独立して設立されました。<br>UI/UXデザイン、レスポンシブWeb開発、小型プログラム開発に特化しています。",
     "learn-more": "詳細を見る",
-    "copyright": "Copyright &copy; 2022-2025 Akizuki Studio. 全著作権所有。",
+    "copyright": "Copyright &copy; 2022-2025 Akizuki Studio. 全著作権所有。<br>mail: a7autumn@outlook.com",
+    "news": "ニュース情報",
     "services": "主要サービス",
     "service1": "UIデザイン",
     "service1-desc": "専門的なUIデザインサービスを提供し、<br>美しいユーザーインターフェースの作成をサポートします。",
     "service2": "レスポンシブWeb開発",
     "service2-desc": "レスポンシブWeb開発サービスを提供し、<br>あらゆるデバイスで正常に表示されるようにします。",
     "service3": "小型プログラム開発",
-    "service3-desc": "小型プログラム開発サービスを提供し、<br>使いやすいアプリケーションの作成をサポートします。"
+    "service3-desc": "小型プログラム開発サービスを提供し、<br>使いやすいアプリケーションの作成をサポートします。",
+    "404-title": "404 - ページが見つかりません",
+    "404-desc": "アクセスしようとしたページは存在しません。URLを確認するか、ホームページに戻ってください。",
+    "back-home": "ホームに戻る"
 }

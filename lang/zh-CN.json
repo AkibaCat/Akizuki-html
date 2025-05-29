@@ -1,15 +1,19 @@
 {
-    "nav1": "首页",
+    "home": "首页",
     "nav2": "联系我们",
     "studio-name": "Akizuki Studio (秋月工作室)",
     "studio-intro": "Akizuki Studio 由 AkibaCat 于2022年独立创立<br>专注于 界面设计(UI/UX)、响应式Web开发、小型程序开发",
     "learn-more": "了解更多",
-    "copyright": "Copyright &copy; 2022-2025 Akizuki Studio. 保留所有权利",
+    "copyright": "Copyright &copy; 2022-2025 Akizuki Studio. 保留所有权利<br>mail: a7autumn@outlook.com",
+    "news": "新闻资讯",
     "services": "主要服务",
     "service1": "界面设计",
     "service1-desc": "提供专业的界面设计服务，<br>帮助您创建精美的用户界面",
     "service2": "响应式Web开发",
     "service2-desc": "提供响应式Web开发服务，<br>确保您的网站在各种设备上都能正常显示",
     "service3": "小型程序开发",
-    "service3-desc": "提供小型程序开发服务，<br>帮助您创建简单易用的应用程序"
+    "service3-desc": "提供小型程序开发服务，<br>帮助您创建简单易用的应用程序",
+    "404-title": "404 - 页面未找到",
+    "404-desc": "您访问的页面不存在，请检查网址或返回首页。",
+    "back-home": "返回首页"
 }
